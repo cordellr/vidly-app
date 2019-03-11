@@ -5,7 +5,6 @@ const Pagination = props => {
   //these are defined in props on movies.jsx
   //object destructring
   const { itemsCount, pageSize, currentPage, onPageChange } = props;
-  console.log(currentPage);
   //calculates number of pages
   //Math.ceil returns integer greater than or equal to floating point number
   const pagesCount = Math.ceil(itemsCount / pageSize);
