@@ -4,7 +4,8 @@ import _ from "lodash";
 const Pagination = props => {
   //these are defined in props on movies.jsx
   //object destructring
-  const { itemsCount, pageSize, onPageChange } = props;
+  const { itemsCount, pageSize, currentPage, onPageChange } = props;
+  console.log(currentPage);
   //calculates number of pages
   //Math.ceil returns integer greater than or equal to floating point number
   const pagesCount = Math.ceil(itemsCount / pageSize);
@@ -17,7 +18,10 @@ const Pagination = props => {
     <nav>
       <ul className="pagination">
         {pages.map(page => (
-          <li key={page} className="page-item">
+          <li
+            key={page}
+            className={page === currentPage ? "page-item active" : "page-item"}
+          >
             <a className="page-link" onClick={() => onPageChange(page)}>
               {page}
             </a>
